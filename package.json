@@ -1,0 +1,22 @@
+{
+  "name": "yo-starred",
+  "version": "0.1.0",
+  "description": "Receive a Yo when someone stars one of your GitHub repos",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "author": "David da Silva",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "escape-string-regexp": "^1.0.4",
+    "express": "^4.13.4",
+    "lodash": "^4.5.0",
+    "loot-diff": "^1.0.1",
+    "request-promise": "^2.0.1"
+  },
+  "devDependencies": {
+    "standard": "^6.0.7"
+  }
+}
