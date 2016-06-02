@@ -17,6 +17,7 @@
     "request-promise": "^2.0.1"
   },
   "devDependencies": {
+    "node-sass": "^3.4.2",
     "standard": "^6.0.7"
   }
 }

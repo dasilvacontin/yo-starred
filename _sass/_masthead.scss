@@ -1,0 +1,45 @@
+@import "colors";
+
+.masthead {
+  $height: 70px;
+  height: $height;
+  line-height: $height;
+  background: $amethyst;
+  a:hover { text-decoration: none }
+}
+
+.masthead-logo {
+  font-size: 1.3rem;
+  color: white;
+}
+
+body.landing .masthead .container { text-align: center }
+.masthead .container { position: relative }
+
+.masthead-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+  a {
+    color: rgba(white, 0.5);
+    margin: 0 5px;
+    &:hover { color: white }
+    &:first-child { margin-left: 0 }
+    &:last-child { margin-right: 0 }
+  }
+}
+
+@media (max-width: 34em) {
+  .masthead {
+    height: auto;
+  }
+
+  .masthead-nav {
+    position: static;
+    margin-top: -8px;
+    padding-top: 1rem;
+    line-height: 1em;
+    border-top: 0.075rem solid rgba(255,255,255,0.25);
+  }
+}

@@ -1,0 +1,14 @@
+title: Yo Starred
+description: Receive a Yo when someone stars one of your GitHub repos
+url: http://dasilvacont.in
+baseurl: /yo-starred
+sass:
+  load_paths:
+    - _sass
+    - bower_components/primer-css/scss
+exclude:
+  - "bower_components"
+  - "bower.json"
+  - "node_modules"
+  - "server.js"
+host: 0.0.0.0

@@ -109,13 +109,6 @@ function createOrUpdateStarHook (repo) {
   })
 }
 
-getRepos().then(function (repos) {
-  var promises = repos.map(createOrUpdateStarHook)
-  return Promise.all(promises)
-}).then(function () {
-  console.log('All good! :D')
-})
-
 var app = express()
 app.use(bodyParser.json())
 
@@ -132,6 +125,43 @@ app.post('/call-me-maybe', function (req, res) {
       username: 'dasilvacontin',
       text: message
     }
+  })
+})
+
+function getAccessToken (code) {
+  var endpoint = 'https://github.com/login/oauth/access_token'
+  return request(endpoint, {
+    headers: {
+      'User-Agent': 'yo-starred'
+      'Accept': 'application/json'
+    },
+    json: true,
+    body: {
+      cliend_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET,
+      code: code
+    }
+  })
+}
+
+function setUpUser (accessToken) {
+  return getRepos(accessToken).then(function (repos) {
+    var handleHookForUser = _.partial(createOrUpdateStarHook, accessToken)
+    var promises = repos.map(handleHookForUser)
+    return Promise.all(promises)
+  }).then(function () {
+    console.log(accessToken + ' was correctly set up')
+  })
+}
+
+app.post('/register', function (req, res) {
+  var code = req.body.code
+  getAccessToken(code).then(function (auth) {
+    return setUpUser(auth.access_token)
+  }).then(function () {
+
+  }).catch(function (err) {
+
   })
 })
 

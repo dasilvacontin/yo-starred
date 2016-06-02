@@ -1,0 +1,23 @@
+{
+  "name": "yo-starred",
+  "description": "Receive a Yo when someone stars one of your GitHub repos",
+  "main": "index.js",
+  "authors": [
+    "David da Silva"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dasilvacontin/yo-starred",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "primer-css": "^2.7.0",
+    "octicons": "*"
+  }
+}
